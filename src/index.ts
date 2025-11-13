@@ -18,7 +18,6 @@ class YummaCSS {
 		const classes = extractor(document.body);
 		const newClasses = new Set<string>();
 
-		
 		for (const cls of classes) {
 			if (!this.processedClasses.has(cls)) {
 				newClasses.add(cls);
@@ -46,7 +45,7 @@ class YummaCSS {
 
 		this.resetInjected = true;
 	}
-	
+
 	private startWatching(): void {
 		if (this.observer) return;
 
@@ -54,7 +53,7 @@ class YummaCSS {
 			this.process();
 		});
 	}
-	
+
 	private injectCSS(css: string): void {
 		if (!this.styleElement) {
 			this.styleElement = document.createElement("style");
@@ -66,9 +65,7 @@ class YummaCSS {
 	}
 }
 
-
 if (typeof window !== "undefined") {
-	
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", () => {
 			const yummacss = new YummaCSS();
